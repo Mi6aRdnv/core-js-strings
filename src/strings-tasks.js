@@ -269,8 +269,8 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').toReversed().join('');
 }
 
 /**
@@ -318,8 +318,15 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  let result = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (vowels.includes(str[i].toLowerCase())) {
+      result += 1;
+    }
+  }
+  return result;
 }
 
 /**
@@ -335,8 +342,16 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const rootArr = str
+    .toLowerCase()
+    .replaceAll(/[\s!,?]/g, '')
+    .split('');
+  const reversedArr = rootArr.toReversed();
+  if (rootArr.join('') === reversedArr.join('')) {
+    return true;
+  }
+  return false;
 }
 
 /**
