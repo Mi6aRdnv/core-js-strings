@@ -270,7 +270,7 @@ function formatTime(minutes, seconds) {
  *   reverseString('12345') => '54321'
  */
 function reverseString(str) {
-  return str.split('').toReversed().join('');
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -380,8 +380,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const reversedWords = [];
+  const words = str.split(' ');
+  for (let i = 0; i < words.length; i += 1) {
+    reversedWords[i] = words[i].split('').reverse().join('');
+  }
+  return reversedWords.join(' ');
 }
 
 /**
